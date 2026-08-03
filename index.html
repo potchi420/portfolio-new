@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Portfolio of Franz Mesina — building clean, efficient and elegant solutions with modern technologies.">
+        <title>Franz Mesina — Developer</title>
+
+        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='42' r='7' fill='%23f4f4f5'/%3E%3Ccircle cx='38' cy='42' r='2' fill='%23f4f4f5'/%3E%3Ccircle cx='62' cy='42' r='2' fill='%23f4f4f5'/%3E%3Crect x='40' y='56' width='20' height='4' rx='2' fill='%23f4f4f5'/%3E%3C/svg%3E">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <a class="skip-link" href="#main">skip to content</a>
+
+        <!-- ===== sidebar (desktop) ===== -->
+        <nav class="sidebar" aria-label="primary">
+            <a class="sidebar-brand" href="#top">
+                <span class="brand-pixel">franz</span>
+                <span class="brand-meta">mesina · developer</span>
+            </a>
+
+            <ul class="sidebar-nav">
+                <li><a href="#about" class="nav-item is-active"><span class="nav-arrow" aria-hidden="true">→</span>about</a></li>
+                <li><a href="#projects" class="nav-item"><span class="nav-arrow" aria-hidden="true">→</span>projects</a></li>
+                <li><a href="#stack" class="nav-item"><span class="nav-arrow" aria-hidden="true">→</span>stack</a></li>
+                <li><a href="#contact" class="nav-item"><span class="nav-arrow" aria-hidden="true">→</span>contact</a></li>
+            </ul>
+
+            <div class="sidebar-foot">
+                <button class="theme-toggle" type="button" aria-label="switch theme">
+                    <span class="theme-glyph" aria-hidden="true">☾</span>
+                    <span class="theme-label">dark mode</span>
+                </button>
+                <div class="sidebar-social">
+                    <a href="https://github.com/potchi420" target="_blank" rel="noopener noreferrer">github ↗</a>
+                    <a href="https://www.linkedin.com/in/franz-mesina-0ba8b2290/" target="_blank" rel="noopener noreferrer">linkedin ↗</a>
+                </div>
+                <p class="sidebar-copy">© 2026</p>
+            </div>
+        </nav>
+
+        <!-- ===== topbar (mobile) ===== -->
+        <header class="topbar">
+            <a class="topbar-brand" href="#top">franz</a>
+            <div class="topbar-actions">
+                <button class="theme-toggle" type="button" aria-label="switch theme">
+                    <span class="theme-glyph" aria-hidden="true">☾</span>
+                    <span class="theme-label">dark mode</span>
+                </button>
+                <button class="menu-btn" type="button" aria-controls="mobile-menu" aria-expanded="false">menu</button>
+            </div>
+        </header>
+
+        <button class="theme-toggle theme-toggle-float" type="button" aria-label="switch theme">
+            <span class="theme-glyph" aria-hidden="true">☾</span>
+            <span class="theme-label">dark mode</span>
+        </button>
+
+        <!-- ===== mobile menu ===== -->
+        <div id="mobile-menu" class="mobile-menu" hidden>
+            <nav class="mobile-menu-nav" aria-label="mobile">
+                <a href="#about">about</a>
+                <a href="#projects">projects</a>
+                <a href="#stack">stack</a>
+                <a href="#contact">contact</a>
+            </nav>
+            <p class="mobile-menu-copy">© 2026 franz mesina</p>
+        </div>
+
+        <main id="main">
+            <!-- ===== hero ===== -->
+            <section id="top" class="hero">
+                <div class="container hero-inner">
+                    <div class="hero-avatar" data-reveal>
+                        <img src="assets/me.jpg" alt="Portrait of Franz Mesina" class="avatar-img" loading="eager">
+                        <span class="avatar-halftone" aria-hidden="true"></span>
+                    </div>
+
+                    <p class="hero-status mono" data-reveal><span class="status-dot" aria-hidden="true"></span>student — aspiring software engineer</p>
+                    <h1 class="hero-title" data-reveal>franz mesina</h1>
+                    <p class="hero-tag" data-reveal>Building clean, efficient and elegant solutions with modern technologies.</p>
+
+                    <div class="hero-links" data-reveal>
+                        <a href="https://github.com/potchi420" target="_blank" rel="noopener noreferrer" class="link-arrow">github ↗</a>
+                        <a href="https://www.linkedin.com/in/franz-mesina-0ba8b2290/" target="_blank" rel="noopener noreferrer" class="link-arrow">linkedin ↗</a>
+                        <a href="mailto:franzrobertmesina@gmail.com" class="link-arrow">email ↗</a>
+                    </div>
+
+                    <ul class="stats" data-reveal>
+                        <li>
+                            <span class="stat-value pixel">04</span>
+                            <span class="stat-label">projects shipped</span>
+                        </li>
+                        <li>
+                            <span class="stat-value pixel">06</span>
+                            <span class="stat-label">languages</span>
+                        </li>
+                        <li>
+                            <span class="stat-value pixel">03</span>
+                            <span class="stat-label">databases</span>
+                        </li>
+                        <li>
+                            <span class="stat-value pixel">02</span>
+                            <span class="stat-label">frameworks</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ===== 01 about ===== -->
+            <section id="about" class="section">
+                <div class="container">
+                    <header class="section-head" data-reveal>
+                        <h2 class="section-num pixel">01 — about</h2>
+                    </header>
+
+                    <div class="about-grid">
+                        <figure class="about-photo" data-reveal>
+                            <img src="assets/me.jpg" alt="Franz Mesina" class="about-img" loading="lazy">
+                            <figcaption class="mono">franz — currently a student</figcaption>
+                        </figure>
+
+                        <div class="about-text serif" data-reveal>
+                            <p>
+                                I'm a student aspiring to become a programmer and excel in whatever field I pursue.
+                                Driven by curiosity and a passion for technology, I constantly seek opportunities to
+                                learn new skills, solve challenging problems, and contribute to meaningful projects
+                                that make a difference.
+                            </p>
+                            <p>
+                                My approach combines persistence, creativity, and a strong foundation in logical
+                                thinking. I believe in building solutions that are not only functional but also
+                                user-friendly and sustainable. By balancing technical knowledge with adaptability,
+                                I aim to grow into a professional who can thrive in dynamic environments and
+                                collaborate effectively with diverse teams.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== 02 projects ===== -->
+            <section id="projects" class="section">
+                <div class="container">
+                    <header class="section-head section-head-row" data-reveal>
+                        <h2 class="section-num pixel">02 — projects</h2>
+                        <a href="https://github.com/potchi420" target="_blank" rel="noopener noreferrer" class="link-arrow">all code ↗</a>
+                    </header>
+
+                    <div class="projects-grid">
+                        <!-- Lusit -->
+                        <a href="https://github.com/potchi420/Lusit.git" target="_blank" rel="noopener noreferrer" class="card project-card" data-reveal>
+                            <div class="card-media">
+                                <img src="assets/lusit.png" alt="Lusit app screenshot" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <p class="card-kicker mono">web app</p>
+                                <h3 class="card-title">Lusit</h3>
+                                <p class="card-desc">A general weight loss advice web app offering simple tips and progress tracking for healthier living.</p>
+                                <div class="tags">
+                                    <span class="tag">Flask</span>
+                                    <span class="tag">Bootstrap</span>
+                                    <span class="tag">Jinja</span>
+                                    <span class="tag">SQLite</span>
+                                </div>
+                            </div>
+                            <span class="card-arrow mono" aria-hidden="true">↗</span>
+                        </a>
+
+                        <!-- StoreAID -->
+                        <a href="https://www.figma.com/design/SwY7egMHzNeEZ39Bgkgb4E/Prototype?m=auto&t=hySadbxkWBnklGiK-1" target="_blank" rel="noopener noreferrer" class="card project-card" data-reveal>
+                            <div class="card-media">
+                                <img src="assets/storeaid.png" alt="StoreAID prototype screenshot" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <p class="card-kicker mono">prototype</p>
+                                <h3 class="card-title">StoreAID</h3>
+                                <p class="card-desc">A prototype of a hardware inventory management system for streamlined operations.</p>
+                                <div class="tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">Prototyping</span>
+                                </div>
+                            </div>
+                            <span class="card-arrow mono" aria-hidden="true">↗</span>
+                        </a>
+
+                        <!-- Payroll -->
+                        <a href="https://github.com/potchi420/Payroll-System.git" target="_blank" rel="noopener noreferrer" class="card project-card" data-reveal>
+                            <div class="card-media">
+                                <img src="assets/payroll.png" alt="Payroll System screenshot" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <p class="card-kicker mono">desktop app</p>
+                                <h3 class="card-title">Payroll System</h3>
+                                <p class="card-desc">A WinForms app designed to streamline payroll and simplify employee compensation management.</p>
+                                <div class="tags">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">API integration</span>
+                                    <span class="tag">SQL Server (SSMS)</span>
+                                    <span class="tag">WinForms</span>
+                                </div>
+                            </div>
+                            <span class="card-arrow mono" aria-hidden="true">↗</span>
+                        </a>
+
+                        <!-- Grocery -->
+                        <a href="https://github.com/potchi420/OOP-Grocery-Store-System.git" target="_blank" rel="noopener noreferrer" class="card project-card" data-reveal>
+                            <div class="card-media">
+                                <img src="assets/grocery.png" alt="Grocery Store System screenshot" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <p class="card-kicker mono">console app</p>
+                                <h3 class="card-title">Grocery Store System</h3>
+                                <p class="card-desc">A Java console app for managing grocery store inventory, sales, and customer records.</p>
+                                <div class="tags">
+                                    <span class="tag">Java</span>
+                                </div>
+                            </div>
+                            <span class="card-arrow mono" aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== 03 stack ===== -->
+            <section id="stack" class="section">
+                <div class="container">
+                    <header class="section-head" data-reveal>
+                        <h2 class="section-num pixel">03 — stack</h2>
+                    </header>
+
+                    <div class="stack-grid" data-reveal>
+                        <div class="stack-cell">
+                            <h3 class="stack-title mono">Languages</h3>
+                            <ul class="stack-list">
+                                <li class="tag">HTML</li>
+                                <li class="tag">CSS</li>
+                                <li class="tag">JavaScript</li>
+                                <li class="tag">Python</li>
+                                <li class="tag">Java</li>
+                                <li class="tag">C#</li>
+                            </ul>
+                        </div>
+                        <div class="stack-cell">
+                            <h3 class="stack-title mono">Frameworks</h3>
+                            <ul class="stack-list">
+                                <li class="tag">Flask</li>
+                                <li class="tag">WinForms</li>
+                            </ul>
+                        </div>
+                        <div class="stack-cell">
+                            <h3 class="stack-title mono">Databases</h3>
+                            <ul class="stack-list">
+                                <li class="tag">SQLite</li>
+                                <li class="tag">MongoDB</li>
+                                <li class="tag">SQL Server</li>
+                            </ul>
+                        </div>
+                        <div class="stack-cell">
+                            <h3 class="stack-title mono">Tools &amp; Design</h3>
+                            <ul class="stack-list">
+                                <li class="tag">Git</li>
+                                <li class="tag">GitHub</li>
+                                <li class="tag">Linux</li>
+                                <li class="tag">Figma</li>
+                                <li class="tag">Prototyping</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="stack-strip" data-reveal>
+                        <p class="stack-strip-label mono"><span class="status-dot" aria-hidden="true"></span>currently learning</p>
+                        <div class="tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">Tailwind</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== 04 contact ===== -->
+            <section id="contact" class="section section-last">
+                <div class="container">
+                    <header class="section-head" data-reveal>
+                        <h2 class="section-num pixel">04 — contact</h2>
+                    </header>
+
+                    <div class="contact-grid">
+                        <div class="contact-spotlight" data-reveal>
+                            <h3 class="contact-title pixel">say hello</h3>
+                            <p class="contact-lead">
+                                Have a project in mind, want to collaborate, or just want to chat?
+                                My inbox is always open.
+                            </p>
+
+                            <a href="mailto:franzrobertmesina@gmail.com" class="contact-email mono">franzrobertmesina@gmail.com</a>
+
+                            <div class="contact-actions">
+                                <a href="mailto:franzrobertmesina@gmail.com" class="btn btn-primary">open mail app ↗</a>
+                                <button type="button" class="btn btn-ghost" id="copy-email">copy email</button>
+                            </div>
+
+                            <div class="contact-social">
+                                <a href="https://github.com/potchi420" target="_blank" rel="noopener noreferrer" class="link-arrow">github ↗</a>
+                                <a href="https://www.linkedin.com/in/franz-mesina-0ba8b2290/" target="_blank" rel="noopener noreferrer" class="link-arrow">linkedin ↗</a>
+                            </div>
+                        </div>
+
+                        <form class="contact-form" data-reveal novalidate>
+                            <div class="field">
+                                <label class="field-label mono" for="cf-name">name</label>
+                                <input class="field-input" type="text" id="cf-name" name="name" placeholder="your name" autocomplete="name" required>
+                            </div>
+                            <div class="field">
+                                <label class="field-label mono" for="cf-email">email</label>
+                                <input class="field-input" type="email" id="cf-email" name="email" placeholder="your.email@example.com" autocomplete="email" required>
+                            </div>
+                            <div class="field">
+                                <label class="field-label mono" for="cf-message">message</label>
+                                <textarea class="field-input" id="cf-message" name="message" rows="5" placeholder="tell me about your project…" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full">send message ↗</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="mono">© 2026 franz mesina — inspired by bryl-lim's portfolio</p>
+        </footer>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
