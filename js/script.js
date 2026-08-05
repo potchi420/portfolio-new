@@ -210,4 +210,93 @@
                 + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
         });
     }
+
+    /* ============ ai chat widget ============ */
+    var chatFab = document.querySelector('.chat-fab');
+    var chatPanel = document.getElementById('chat-panel');
+    var chatBody = document.getElementById('chat-body');
+    var chatForm = document.querySelector('.chat-form');
+    var chatInput = chatForm ? chatForm.querySelector('.chat-input') : null;
+    var chatClose = document.querySelector('.chat-close');
+
+    var demoReplies = [
+        'Thanks for reaching out! I\'m still being wired up to my AI brain, check back soon.',
+        'Hello there! My chatbot engine is still in training, but I can\'t wait to chat for real.',
+        'Message received. Once my AI backend is connected I\'ll reply properly, watch this space.'
+    ];
+
+    function getBotReply() {
+        return demoReplies[Math.floor(Math.random() * demoReplies.length)];
+    }
+
+    function appendMessage(text, who) {
+        var msg = document.createElement('div');
+        msg.className = 'msg msg-' + who;
+        msg.textContent = text;
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        return msg;
+    }
+
+    function showTyping() {
+        var row = document.createElement('div');
+        row.className = 'msg msg-bot msg-typing';
+        row.setAttribute('aria-hidden', 'true');
+        for (var i = 0; i < 3; i++) {
+            var dot = document.createElement('span');
+            dot.className = 'typing-dot';
+            row.appendChild(dot);
+        }
+        chatBody.appendChild(row);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        return row;
+    }
+
+    function sendChatMessage(text) {
+        appendMessage(text, 'user');
+        chatInput.value = '';
+        var typing = showTyping();
+        var reply = getBotReply();
+        setTimeout(function () {
+            typing.remove();
+            appendMessage(reply, 'bot');
+        }, prefersReducedMotion ? 0 : 900);
+    }
+
+    function closeChat() {
+        chatPanel.hidden = true;
+        chatFab.setAttribute('aria-expanded', 'false');
+        chatFab.focus();
+    }
+
+    if (chatFab && chatPanel) {
+        chatFab.addEventListener('click', function () {
+            var open = chatPanel.hidden;
+            chatPanel.hidden = !open;
+            chatFab.setAttribute('aria-expanded', String(open));
+            if (open && chatInput) {
+                chatInput.focus();
+            }
+        });
+
+        if (chatClose) {
+            chatClose.addEventListener('click', closeChat);
+        }
+
+        if (chatForm && chatInput) {
+            chatForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var text = chatInput.value.trim();
+                if (text) {
+                    sendChatMessage(text);
+                }
+            });
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !chatPanel.hidden) {
+                closeChat();
+            }
+        });
+    }
 })();

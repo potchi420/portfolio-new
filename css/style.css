@@ -840,6 +840,208 @@ main {
     color: var(--gray-400);
 }
 
+/* ============ ai chat widget ============ */
+.chat-fab {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 55;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink);
+    color: var(--bg);
+    border: 1px solid var(--gray-200);
+    border-radius: 50%;
+    box-shadow: var(--shadow-hover);
+    cursor: pointer;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.35s ease,
+        background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+.chat-fab:hover {
+    transform: translateY(-2px);
+}
+
+.chat-panel {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 5.25rem;
+    z-index: 55;
+    width: min(22rem, calc(100vw - 2rem));
+    height: min(26rem, calc(100vh - 8rem));
+    display: flex;
+    flex-direction: column;
+    background: var(--card-fill);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-rest);
+    overflow: hidden;
+    animation: chat-in 0.2s var(--ease-out);
+    transition: background 0.5s ease, border-color 0.5s ease;
+}
+
+.chat-panel[hidden] {
+    display: none;
+}
+
+@keyframes chat-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--gray-200);
+    transition: border-color 0.5s ease;
+}
+
+.chat-status {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray-500);
+}
+
+.chat-close {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    background: transparent;
+    border: none;
+    color: var(--gray-400);
+    cursor: pointer;
+    padding: 0.25rem 0.35rem;
+    border-radius: var(--radius-xs);
+    transition: color 0.2s ease;
+}
+
+.chat-close:hover {
+    color: var(--ink);
+}
+
+.chat-body {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem 1.25rem 0.75rem;
+}
+
+.msg {
+    max-width: 82%;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding: 0.55rem 0.8rem;
+    border-radius: var(--radius-md);
+    word-wrap: break-word;
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+.msg-bot {
+    align-self: flex-start;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    color: var(--ink);
+    border-bottom-left-radius: var(--radius-xs);
+}
+
+.msg-user {
+    align-self: flex-end;
+    background: var(--ink);
+    color: var(--bg);
+    border-bottom-right-radius: var(--radius-xs);
+}
+
+.msg-typing {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.7rem 0.9rem;
+}
+
+.typing-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gray-500);
+    animation: status-pulse 1.2s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.chat-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem 1.25rem;
+    border-top: 1px solid var(--gray-200);
+    transition: border-color 0.5s ease;
+}
+
+.chat-input {
+    flex: 1;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ink);
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xs);
+    padding: 0.6rem 0.8rem;
+    transition: border-color 0.25s ease, background-color 0.5s ease, color 0.5s ease;
+}
+
+.chat-input::placeholder {
+    color: var(--gray-400);
+}
+
+.chat-input:focus {
+    outline: none;
+    border-color: var(--gray-400);
+}
+
+.chat-send {
+    flex-shrink: 0;
+    width: 2.3rem;
+    height: 2.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink);
+    color: var(--bg);
+    border: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.25s var(--ease-out), background-color 0.3s ease;
+}
+
+.chat-send:hover {
+    transform: translateY(-1px);
+}
+
 /* ============ theme toggle ============ */
 .theme-toggle {
     display: flex;
