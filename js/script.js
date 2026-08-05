@@ -190,7 +190,7 @@
         });
     }
 
-    /* ============ contact form -> mailto ============ */
+    /* ============ contact form -> mailto.. ewan kung gagawin ko pa ba to ============ */
     var form = document.querySelector('.contact-form');
     if (form) {
         form.addEventListener('submit', function (e) {
@@ -211,7 +211,7 @@
         });
     }
 
-    /* ============ ai chat widget ============ */
+    /* ============ ai chat widget basta ============ */
     var chatFab = document.querySelector('.chat-fab');
     var chatPanel = document.getElementById('chat-panel');
     var chatBody = document.getElementById('chat-body');
@@ -219,15 +219,7 @@
     var chatInput = chatForm ? chatForm.querySelector('.chat-input') : null;
     var chatClose = document.querySelector('.chat-close');
 
-    var demoReplies = [
-        'Thanks for reaching out! I\'m still being wired up to my AI brain, check back soon.',
-        'Hello there! My chatbot engine is still in training, but I can\'t wait to chat for real.',
-        'Message received. Once my AI backend is connected I\'ll reply properly, watch this space.'
-    ];
-
-    function getBotReply() {
-        return demoReplies[Math.floor(Math.random() * demoReplies.length)];
-    }
+    var CHAT_API = '/api/chat';
 
     function appendMessage(text, who) {
         var msg = document.createElement('div');
@@ -256,11 +248,26 @@
         appendMessage(text, 'user');
         chatInput.value = '';
         var typing = showTyping();
-        var reply = getBotReply();
-        setTimeout(function () {
-            typing.remove();
-            appendMessage(reply, 'bot');
-        }, prefersReducedMotion ? 0 : 900);
+
+        fetch(CHAT_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: text })
+        })
+            .then(function (res) {
+                if (!res.ok) {
+                    throw new Error('request failed with status ' + res.status);
+                }
+                return res.json();
+            })
+            .then(function (data) {
+                typing.remove();
+                appendMessage(data.reply || 'No reply received.', 'bot');
+            })
+            .catch(function () {
+                typing.remove();
+                appendMessage('Sorry — I could not reach my backend right now.', 'bot');
+            });
     }
 
     function closeChat() {
