@@ -18,6 +18,3 @@
 - databases: SQLite, MongoDB, SQL Server
 - tools: Git, GitHub, Linux, Figma, prototyping
 - currently learning: React, Express, Tailwind, Node.js, PostgreSQL
-
-## writing tips
-- this file is YOUR turn to fill with anything you want the bot to know

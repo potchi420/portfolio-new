@@ -34,7 +34,7 @@ def chat():
 
     facts = load_facts()
 
-    # SECTION A — build the system prompt (your turn)
+    # system prompt for the AI assistant
     system_prompt = f"""
     You are the friendly assistant for Franz Mesina's portfolio site.
     Visitors ask about Franz, his projects, skills, and experience.
@@ -57,7 +57,7 @@ def chat():
     - If asked about current self study or something, mention that he's currently self studying AI and ML, TheOdinProject, and other things.
     """
 
-    # SECTION B — call the DeepSeek API (your turn)
+    # call the DeepSeek API to get a response from the AI assistant
     response = client.chat.completions.create(
         model=DEEPSEEK_MODEL,
         messages=[
@@ -66,7 +66,7 @@ def chat():
         ]
     )
 
-    # SECTION C — return the reply (your turn)
+    # check if the response has choices and return the first one
     if response.choices and len(response.choices) > 0:
         reply = response.choices[0].message.content
         return jsonify({"reply": reply})
