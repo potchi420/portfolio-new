@@ -352,22 +352,24 @@ main {
 }
 
 .avatar-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: opacity 0.5s ease;
 }
 
-.avatar-halftone {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 45%;
-    pointer-events: none;
-    background-image: radial-gradient(circle, var(--dot-soft) 1px, transparent 1px);
-    background-size: 6px 6px;
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 78%);
-    mask-image: linear-gradient(to bottom, transparent, black 78%);
+.avatar-img-dark {
+    opacity: 0;
+}
+
+:root[data-theme='dark'] .avatar-img-light {
+    opacity: 0;
+}
+
+:root[data-theme='dark'] .avatar-img-dark {
+    opacity: 1;
 }
 
 .hero-status {
