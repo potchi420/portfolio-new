@@ -11,6 +11,7 @@
 - StoreAID — hardware inventory management prototype (Figma)
 - Payroll System — WinForms app for payroll/compensation (C#, SQL Server)
 - Grocery Store System — Java console app for store inventory/sales
+- PokéWhat? — A Flask web app for looking up Pokémon stats and sprites, plus a "Who's That Pokémon?" silhouette guessing game.
 
 ## stack
 - languages: HTML, CSS, JavaScript, Python, Java, C#
