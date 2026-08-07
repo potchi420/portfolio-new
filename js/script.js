@@ -266,7 +266,7 @@
             })
             .catch(function () {
                 typing.remove();
-                appendMessage('Sorry — I could not reach my backend right now.', 'bot');
+                appendMessage('Sorry! There seems to be an error reaching my backend right now.', 'bot');
             });
     }
 

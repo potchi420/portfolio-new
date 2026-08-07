@@ -16,5 +16,9 @@
 - languages: HTML, CSS, JavaScript, Python, Java, C#
 - frameworks: Flask, WinForms
 - databases: SQLite, MongoDB, SQL Server
-- tools: Git, GitHub, Linux, Figma, prototyping
+- tools: Git, GitHub, Linux, Figma, , Uses ubuntu linux 22.04 for development, can use microsoft office tools, prototyping
 - currently learning: React, Express, Tailwind, Node.js, PostgreSQL
+
+## achievements
+- graduated with honors as a S.T.E.M student in Senior High School
+- Been a consistent dean's lister from 1st year to present with the recent GWA being 1.08
