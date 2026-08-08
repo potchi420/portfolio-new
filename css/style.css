@@ -869,11 +869,11 @@ main {
 
 .chat-panel {
     position: fixed;
-    right: 1.25rem;
-    bottom: 5.25rem;
+    right: calc(1.25rem + 3rem + 0.75rem);
+    bottom: 1.25rem;
     z-index: 55;
-    width: min(22rem, calc(100vw - 2rem));
-    height: min(26rem, calc(100dvh - 8rem));
+    width: min(22rem, calc(100vw - 6rem));
+    height: min(26rem, calc(100dvh - 2.5rem));
     display: flex;
     flex-direction: column;
     background: var(--card-fill);
