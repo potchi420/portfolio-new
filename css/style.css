@@ -873,7 +873,7 @@ main {
     bottom: 5.25rem;
     z-index: 55;
     width: min(22rem, calc(100vw - 2rem));
-    height: min(26rem, calc(100vh - 8rem));
+    height: min(26rem, calc(100dvh - 8rem));
     display: flex;
     flex-direction: column;
     background: var(--card-fill);
@@ -919,6 +919,17 @@ main {
     color: var(--gray-500);
 }
 
+.chat-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.chat-max {
+    display: none;
+}
+
+.chat-max,
 .chat-close {
     font-family: var(--font-mono);
     font-size: 0.65rem;
@@ -1288,6 +1299,23 @@ html.vt-switching *::after {
 @media (max-width: 767px) {
     .section {
         padding: 3rem 0;
+    }
+
+    .chat-max {
+        display: inline-block;
+    }
+
+    .chat-panel.is-maximized {
+        width: 100vw;
+        height: 100dvh;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
     }
 
     .stats {

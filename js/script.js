@@ -218,6 +218,7 @@
     var chatForm = document.querySelector('.chat-form');
     var chatInput = chatForm ? chatForm.querySelector('.chat-input') : null;
     var chatClose = document.querySelector('.chat-close');
+    var chatMax = document.querySelector('.chat-max');
 
     var CHAT_API = '/api/chat';
 
@@ -274,6 +275,35 @@
         chatPanel.hidden = true;
         chatFab.setAttribute('aria-expanded', 'false');
         chatFab.focus();
+    }
+
+    function setMaximized(on) {
+        chatPanel.classList.toggle('is-maximized', on);
+        chatMax.textContent = on ? 'minimize' : 'expand';
+        chatMax.setAttribute('aria-label', on ? 'minimize chat' : 'maximize chat');
+    }
+
+    if (chatMax) {
+        chatMax.addEventListener('click', function () {
+            setMaximized(!chatPanel.classList.contains('is-maximized'));
+        });
+    }
+
+    var visualViewport = window.visualViewport || null;
+    if (visualViewport && chatPanel) {
+        var pinChat = function () {
+            if (chatPanel.hidden) return;
+            var clamped = Math.max(0, window.innerHeight - (visualViewport.offsetTop + visualViewport.height));
+            if (clamped > 0) {
+                chatPanel.style.height = visualViewport.height + 'px';
+                chatPanel.style.bottom = clamped + 'px';
+            } else {
+                chatPanel.style.removeProperty('height');
+                chatPanel.style.removeProperty('bottom');
+            }
+        };
+        visualViewport.addEventListener('resize', pinChat);
+        visualViewport.addEventListener('scroll', pinChat);
     }
 
     if (chatFab && chatPanel) {
