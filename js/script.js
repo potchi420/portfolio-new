@@ -290,20 +290,28 @@
     }
 
     var visualViewport = window.visualViewport || null;
-    if (visualViewport && chatPanel) {
-        var pinChat = function () {
-            if (chatPanel.hidden) return;
-            var clamped = Math.max(0, window.innerHeight - (visualViewport.offsetTop + visualViewport.height));
-            if (clamped > 0) {
+    var keyboardPinned = false;
+    if (visualViewport && chatPanel && chatInput) {
+        var updatePin = function () {
+            if (chatPanel.hidden || document.activeElement !== chatInput) return;
+            var gap = window.innerHeight - (visualViewport.offsetTop + visualViewport.height);
+            if (gap > 60) {
                 chatPanel.style.height = visualViewport.height + 'px';
-                chatPanel.style.bottom = clamped + 'px';
-            } else {
+                chatPanel.style.bottom = gap + 'px';
+                keyboardPinned = true;
+            } else if (keyboardPinned && gap < 20) {
                 chatPanel.style.removeProperty('height');
                 chatPanel.style.removeProperty('bottom');
+                keyboardPinned = false;
             }
         };
-        visualViewport.addEventListener('resize', pinChat);
-        visualViewport.addEventListener('scroll', pinChat);
+        chatInput.addEventListener('focus', updatePin);
+        chatInput.addEventListener('blur', function () {
+            chatPanel.style.removeProperty('height');
+            chatPanel.style.removeProperty('bottom');
+            keyboardPinned = false;
+        });
+        visualViewport.addEventListener('resize', updatePin);
     }
 
     if (chatFab && chatPanel) {
