@@ -385,6 +385,48 @@ main {
     opacity: 1;
 }
 
+/* ============ batman easter egg ============ */
+.easter-bat {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 44px;
+    height: 25px;
+    background-image: url('../assets/bats.png');
+    background-repeat: no-repeat;
+    background-size: 44px 100px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 80;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.65));
+    animation:
+        bat-scatter 12s cubic-bezier(0.22, 0.61, 0.36, 1) forwards,
+        bat-wing 0.45s steps(4) infinite;
+}
+
+@keyframes bat-wing {
+    from { background-position: 0 0; }
+    to { background-position: 0 -100px; }
+}
+
+@keyframes bat-scatter {
+    0% {
+        transform: translate(0, 0) scale(0.55) rotate(0deg);
+        opacity: 0;
+    }
+    3% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty))
+            scale(calc(var(--sc) * var(--flip)), var(--sc)) rotate(var(--rot));
+        opacity: 0;
+    }
+}
+
 .hero-status {
     display: flex;
     align-items: center;

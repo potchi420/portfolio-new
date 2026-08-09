@@ -45,12 +45,47 @@
         }
     }
 
+    function removeBats() {
+        var bats = document.querySelectorAll('.easter-bat');
+        for (var i = 0; i < bats.length; i++) {
+            bats[i].remove();
+        }
+    }
+
+    function spawnBats() {
+        removeBats();
+        if (prefersReducedMotion) return;
+        var avatar = document.querySelector('.hero-avatar');
+        if (!avatar) return;
+        var rect = avatar.getBoundingClientRect();
+        if (rect.width === 0) return;
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+        var count = 30 + Math.floor(Math.random() * 6);
+        for (var i = 0; i < count; i++) {
+            var bat = document.createElement('div');
+            bat.className = 'easter-bat';
+            var angle = Math.random() * Math.PI * 2;
+            var dist = 260 + Math.random() * 340;
+            bat.style.left = (cx + Math.random() * 40 - 20) + 'px';
+            bat.style.top = (cy + Math.random() * 40 - 20) + 'px';
+            bat.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+            bat.style.setProperty('--ty', Math.sin(angle) * dist * 0.55 + 'px');
+            bat.style.setProperty('--sc', 0.7 + Math.random() * 1.1);
+            bat.style.setProperty('--flip', Math.random() < 0.5 ? '-1' : '1');
+            bat.style.setProperty('--rot', (Math.random() * 60 - 30) + 'deg');
+            document.body.appendChild(bat);
+        }
+        setTimeout(removeBats, 12500);
+    }
+
     function toggleTheme(event) {
         var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         var batman = false;
 
         if (next === 'light') {
             stopBatmanAudio();
+            removeBats();
         }
 
         if (next === 'dark' && Math.random() < 1 / 3) {
@@ -71,6 +106,11 @@
                     play();
                 }
             }, 400);
+            setTimeout(function () {
+                if (root.classList.contains('is-batman')) {
+                    spawnBats();
+                }
+            }, 600);
         }
 
         var apply = function () {
