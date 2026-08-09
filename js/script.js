@@ -35,9 +35,23 @@
         });
     }
 
+    var batmanAudio = null;
+
+    function stopBatmanAudio() {
+        if (batmanAudio) {
+            batmanAudio.pause();
+            batmanAudio.currentTime = 0;
+            batmanAudio = null;
+        }
+    }
+
     function toggleTheme(event) {
         var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         var batman = false;
+
+        if (next === 'light') {
+            stopBatmanAudio();
+        }
 
         if (next === 'dark' && Math.random() < 1 / 3) {
             batman = true;
@@ -46,12 +60,17 @@
                 hero.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
             }
             var audio = new Audio('assets/batman_entrance.mp3');
+            batmanAudio = audio;
             var play = function () {
                 var p = audio.play();
                 if (p && p.catch) p.catch(function () {});
             };
             play();
-            setTimeout(play, 400);
+            setTimeout(function () {
+                if (batmanAudio === audio) {
+                    play();
+                }
+            }, 400);
         }
 
         var apply = function () {
