@@ -364,11 +364,24 @@ main {
     opacity: 0;
 }
 
+.avatar-img-fallback {
+    opacity: 0;
+}
+
 :root[data-theme='dark'] .avatar-img-light {
     opacity: 0;
 }
 
 :root[data-theme='dark'] .avatar-img-dark {
+    opacity: 1;
+}
+
+:root.is-batman .avatar-img-light,
+:root.is-batman .avatar-img-dark {
+    opacity: 0;
+}
+
+:root.is-batman .avatar-img-fallback {
     opacity: 1;
 }
 

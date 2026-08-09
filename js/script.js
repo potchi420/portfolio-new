@@ -37,10 +37,27 @@
 
     function toggleTheme(event) {
         var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        var batman = false;
+
+        if (next === 'dark' && Math.random() < 1 / 3) {
+            batman = true;
+            var hero = document.getElementById('top');
+            if (hero) {
+                hero.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+            }
+            var audio = new Audio('assets/batman_entrance.mp3');
+            var play = function () {
+                var p = audio.play();
+                if (p && p.catch) p.catch(function () {});
+            };
+            play();
+            setTimeout(play, 400);
+        }
 
         var apply = function () {
             localStorage.setItem(STORAGE_KEY, next);
             applyTheme(next);
+            root.classList.toggle('is-batman', batman);
         };
 
         if (!('startViewTransition' in document) || prefersReducedMotion) {
