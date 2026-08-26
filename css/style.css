@@ -573,15 +573,20 @@ main {
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: 2.5rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .about-photo {
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-img {
     width: 100%;
+    flex: 1;
+    min-height: 0;
+    object-fit: cover;
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-rest);
@@ -1152,19 +1157,6 @@ main {
 .theme-glyph {
     font-size: 0.85rem;
     line-height: 1;
-}
-
-.theme-toggle-float {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 90;
-}
-
-@media (max-width: 1023px) {
-    .theme-toggle-float {
-        display: none;
-    }
 }
 
 /* ============ view transitions (theme switch) ============ */
